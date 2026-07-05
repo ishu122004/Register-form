@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+
+<body class="grid justify-center items-center min-h-screen bg-gradient-to-br from-purple-950 via-gray-300 to-purple-950 font-serif">
+
+    <!-- Registration Form -->
+    <div id="regpage" class="grid bg-pink-300 w-2xl h-96 justify-center rounded-2xl shadow-2xl shadow-pink-500 p-5">
+
+        <h1 class="text-center text-3xl font-extrabold text-purple-950 pt-2">
+            Registration Form
+        </h1>
+
+        <div class="grid">
+            <label class="font-semibold">Name</label>
+            <input type="text" id="name"
+                class="border border-black rounded-md h-10 w-72 pl-2 bg-transparent"
+                placeholder="Enter your name">
+            <span id="nameerror" class="text-red-600 text-sm"></span>
+        </div>
+
+        <div class="grid">
+            <label class="font-semibold">Mail</label>
+            <input type="text" id="mail"
+                class="border border-black rounded-md h-10 w-72 pl-2 bg-transparent"
+                placeholder="Enter your Email">
+            <span id="mailerror" class="text-red-600 text-sm"></span>
+        </div>
+
+        <div class="grid">
+            <label class="font-semibold">Password</label>
+            <input type="password" id="password"
+                class="border border-black rounded-md h-10 w-72 pl-2 bg-transparent"
+                placeholder="Enter your password">
+            <span id="passworderror" class="text-red-600 text-sm"></span>
+        </div>
+
+        <button id="btn"
+            class="bg-purple-900 text-white rounded-md h-10 font-extrabold shadow-2xl shadow-purple-300 p-2">
+            Register Now!
+        </button>
+
+    </div>
+
+    <!-- Success Message -->
+    <div id="successmsg"
+        class="hidden bg-white p-8 rounded-xl shadow-2xl text-center h-36 w-2xl grid justify-center items-center">
+
+        <h1 class="text-3xl text-green-600 font-bold">
+            ✅ Registration Successful!
+        </h1>
+
+        <p>
+            Your account has been created successfully.
+        </p>
+
+    </div>
+
+
+    <script>
+
+        const name = document.getElementById("name");
+        const mail = document.getElementById("mail");
+        const password = document.getElementById("password");
+
+        const nameerror = document.getElementById("nameerror");
+        const mailerror = document.getElementById("mailerror");
+        const passworderror = document.getElementById("passworderror");
+
+        const btn = document.getElementById("btn");
+
+        const regpage = document.getElementById("regpage");
+        const successmsg = document.getElementById("successmsg");
+
+        // Name Validation
+
+        name.addEventListener("input", function () {
+
+            let pattern = /^[A-Za-z]+$/;
+
+            if (name.value.trim() === "") {
+                nameerror.textContent = "Name is required *";
+            }
+            else if (!pattern.test(name.value.trim())) {
+                nameerror.textContent = "Only letters are allowed *";
+            }
+            else {
+                nameerror.textContent = "";
+            }
+
+        });
+
+        // Mail Validation
+
+        mail.addEventListener("input", function () {
+
+            let pattern = /^[A-Za-z0-9._%+-]+@gmail\.com$/;
+
+            if (mail.value.trim() === "") {
+                mailerror.textContent = "Mail is required *";
+            }
+            else if (!pattern.test(mail.value.trim())) {
+                mailerror.textContent = "Invalid Gmail *";
+            }
+            else {
+                mailerror.textContent = "";
+            }
+
+        });
+
+        // Password Validation
+
+        password.addEventListener("input", function () {
+
+            let pattern = /^[A-Za-z0-9._%+-]+$/;
+
+            if (password.value.trim() === "") {
+                passworderror.textContent = "Password is required *";
+            }
+            else if (!pattern.test(password.value.trim())) {
+                passworderror.textContent = "Invalid Password *";
+            }
+            else if (password.value.length < 6) {
+                passworderror.textContent = "Minimum 6 characters *";
+            }
+            else {
+                passworderror.textContent = "";
+            }
+
+        });
+
+        // Register Button
+
+        btn.addEventListener("click", function () {
+
+            let namePattern = /^[A-Za-z]+$/;
+            let mailPattern = /^[A-Za-z0-9._%+-]+@gmail\.com$/;
+            let passwordPattern = /^[A-Za-z0-9._%+-]+$/;
+
+            if (
+                name.value.trim() !== "" &&
+                namePattern.test(name.value.trim()) &&
+
+                mail.value.trim() !== "" &&
+                mailPattern.test(mail.value.trim()) &&
+
+                password.value.trim() !== "" &&
+                passwordPattern.test(password.value.trim()) &&
+                password.value.length >= 6
+            ) {
+
+                regpage.style.display="none";
+                successmsg.classList.remove("hidden");
+
+            }
+            else{
+                alert("Please fill all fields correctly")
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
+        
