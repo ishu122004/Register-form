@@ -10,7 +10,7 @@
 <body class="grid justify-center items-center min-h-screen bg-gradient-to-br from-purple-950 via-gray-300 to-purple-950 font-serif">
 
     <!-- Registration Form -->
-    <div id="regpage" class="grid bg-pink-100 w-[300px] h-96 justify-center rounded-2xl shadow-2xl shadow-black-100">
+    <div id="regpage" class="grid bg-pink-100 w-[300px] h-96 justify-center rounded-2xl shadow-2xl shadow-black-100 md:w-2xl">
 
         <h1 class="text-center text-3xl font-extrabold text-purple-900 pt-2">
             Registration Form
@@ -19,7 +19,7 @@
         <div class="grid">
             <label class="font-semibold">Name</label>
             <input type="text" id="name"
-                class="border border-black rounded-md h-10 w-72 pl-2 bg-transparent"
+                class="border border-black rounded-md h-10 w-72 pl-2 focus:bg-transparent focus:outline-none"
                 placeholder="Enter your name">
             <span id="nameerror" class="text-red-600 text-sm"></span>
         </div>
@@ -27,7 +27,7 @@
         <div class="grid">
             <label class="font-semibold">Mail</label>
             <input type="text" id="mail"
-                class="border border-black rounded-md h-10 w-72 pl-2 bg-transparent"
+                class="border border-black rounded-md h-10 w-72 pl-2 focus:bg-transparent focus:outline-none"
                 placeholder="Enter your Email">
             <span id="mailerror" class="text-red-600 text-sm"></span>
         </div>
@@ -49,7 +49,7 @@
 
     <!-- Success Message -->
     <div id="successmsg"
-        class="hidden bg-white p-8 rounded-xl shadow-2xl text-center h-36 w-2xl grid justify-center items-center">
+        class="hidden bg-pink-100 p-8 rounded-xl shadow-2xl text-center h-36 w-[300px] grid justify-center items-center md:w-3xl">
 
         <h1 class="text-3xl text-green-600 font-bold">
             ✅ Registration Successful!
